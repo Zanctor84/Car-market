@@ -1,0 +1,23 @@
+<app-carousel>
+
+</app-carousel>
+
+
+<div
+        *ngIf="posts$ | async as posts; else loading"
+        class="posts"
+>
+
+    <app-car
+            *ngFor="let post of posts"
+            [post]="post"
+    ></app-car>
+</div>
+
+<app-car-service-info>
+
+</app-car-service-info>
+
+<ng-template #loading>
+    <p class="text-center">Загрузка...</p>
+</ng-template>

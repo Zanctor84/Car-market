@@ -1,0 +1,22 @@
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ql-editor::before {
+  content: attr(data-placeholder);
+}
+
+.quill-foto button {
+  width: 50px;
+  height: auto;
+}
+
+.car-params {
+  display: flex;
+  justify-content: space-between;
+}
+
+.car-params .form-control {
+  padding-left: 10px;
+}

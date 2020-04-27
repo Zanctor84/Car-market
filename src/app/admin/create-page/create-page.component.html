@@ -1,0 +1,124 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Создание новой машины</h1>
+
+    <div
+            class="form-control"
+            [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
+    >
+
+
+        <label for="title">Название машины:</label>
+
+
+        <input id="title" type="text" formControlName="title">
+
+        <div
+                *ngIf="form.get('title').touched && form.get('title').invalid"
+                class="validation"
+        >
+            <small *ngIf="form.get('title').errors.required">
+                Введите название
+            </small>
+        </div>
+
+
+        <!-- <quill-editor>
+
+         <div quill-editor-toolbar>
+
+             <span class="ql-formats">
+                 <button class="ql-image" [title]="'Image'">Добавить фото</button>
+
+             </span>
+         </div>
+         </quill-editor>
+         -->
+    </div>
+
+    <div class="form-control quill-foto">
+
+        <quill-editor formControlName="image" placeholder="Добавить заглавную фотографию">
+            <div quill-editor-toolbar>
+
+                <button class="ql-image">Выбрать:</button>
+
+            </div>
+        </quill-editor>
+
+    </div>
+
+
+    <div class="form-control">
+
+        <label for="price">Цена авто:</label>
+
+        <input id="price" type="text" formControlName="price">
+        <small><p>Цена будет в формате $ 258,00. Вам нужно ввести только цифры</p></small>
+
+    </div>
+
+
+    <div class="car-params">
+
+
+        <div class="form-control">
+
+            <label for="price">Год авто:</label>
+
+            <input id="year" type="text" formControlName="year">
+            <small><p>Год выпуска машины:</p></small>
+        </div>
+
+        <div class="form-control">
+
+            <label for="price">Вид топлива:</label>
+
+            <input id="motor" type="text" formControlName="motor">
+            <small><p>Топливо:</p></small>
+        </div>
+
+        <div class="form-control">
+
+            <label for="price">Пробег:</label>
+
+            <input id="run" type="text" formControlName="run">
+            <small><p>Пробег:</p></small>
+        </div>
+
+
+    </div>
+
+
+    <div class="form-control">
+        <label>Контент поста:</label>
+
+        <quill-editor formControlName="text" placeholder="Ваше сообщение">
+
+
+        </quill-editor>
+
+    </div>
+
+    <div
+            class="form-control"
+            [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}"
+    >
+        <label for="author">Автор поста:</label>
+        <input id="author" type="text" formControlName="author">
+        <div
+                *ngIf="form.get('author').touched && form.get('author').invalid"
+                class="validation"
+        >
+            <small *ngIf="form.get('author').errors.required">
+                Введите автора поста
+            </small>
+        </div>
+    </div>
+
+    <button
+            type="submit"
+            class="btn btn-block btn-dark"
+            [disabled]="form.invalid"
+    >Создать пост
+    </button>
+</form>

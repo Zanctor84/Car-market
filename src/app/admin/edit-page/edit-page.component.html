@@ -1,0 +1,91 @@
+<div *ngIf="form; else loading">
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div
+                class="form-control"
+                [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
+        >
+            <label for="title">Название поста:</label>
+            <input id="title" type="text" formControlName="title">
+            <div
+                    *ngIf="form.get('title').touched && form.get('title').invalid"
+                    class="validation"
+            >
+                <small *ngIf="form.get('title').errors.required">
+                    Введите название поста
+                </small>
+            </div>
+        </div>
+
+        <!--<button>SALE</button>-->
+
+        <div class="form-control">
+
+            <quill-editor formControlName="image">
+                <div quill-editor-toolbar>
+            <span class="ql-formats">
+              <button class="ql-image"></button>
+            </span>
+                </div>
+            </quill-editor>
+
+        </div>
+
+
+        <div class="form-control">
+
+            <label for="price">Цена авто:</label>
+
+            <input id="price" type="text" formControlName="price">
+
+        </div>
+
+
+        <div class="car-params">
+
+
+            <div class="form-control">
+
+                <label for="price">Год авто:</label>
+
+                <input id="year" type="text" formControlName="year">
+                <small><p>Год выпуска машины:</p></small>
+            </div>
+
+            <div class="form-control">
+
+                <label for="price">Вид топлива:</label>
+
+                <input id="motor" type="text" formControlName="motor">
+                <small><p>Топливо:</p></small>
+            </div>
+
+            <div class="form-control">
+
+                <label for="price">Пробег:</label>
+
+                <input id="run" type="text" formControlName="run">
+                <small><p>Пробег:</p></small>
+            </div>
+
+
+        </div>
+
+
+        <div class="form-control">
+            <quill-editor formControlName="text"></quill-editor>
+        </div>
+
+
+        <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="form.invalid || submitted"
+        >Обновить
+        </button>
+    </form>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">Идет загрузка...</p>
+</ng-template>

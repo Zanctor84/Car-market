@@ -1,0 +1,10 @@
+.posts {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .child {
+    width: 40%;
+  }
+}

@@ -1,0 +1,97 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+/** Service info 2 start **/
+
+#servicesec {
+  background: rgba(0, 0, 0, 0.04) no-repeat center center fixed;;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.service-section {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .child {
+    width: 25%;
+  }
+}
+
+.service-section .icon {
+  width: 64px;
+  height: 64px;
+}
+
+.child {
+  max-width: 340px;
+}
+
+.childcen {
+  padding: 0px 10px;
+}
+
+.service-info-2 {
+  margin: 30px 0 30px 0;
+  width: 100%;
+  background: #fff;
+  padding: 50px 20px 40px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+}
+
+.service-info-2:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-info-2 .icon {
+  margin: 0 auto 20px;
+  font-size: 50px;
+  line-height: normal;
+}
+
+.service-info-2 h5 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: #212121;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.service-section {
+
+  background-size: cover;
+  width: 100%;
+}
+
+/** Service section 2 start **/
+.service-section-2 {
+
+  background-size: cover;
+  width: 100%;
+  padding: 100px 0 70px;
+}
+
+.service-box ul {
+  margin-bottom: 20px;
+}
+
+.service-box ul li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding-left: 26px;
+  position: relative;
+  font-weight: 500;
+}
+
+.service-box ul li i {
+  left: 0;
+  position: absolute;
+  top: 3px;
+}
