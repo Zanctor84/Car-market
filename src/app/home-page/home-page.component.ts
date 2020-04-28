@@ -11,6 +11,7 @@ import {Post} from '../shared/interfaces';
 export class HomePageComponent implements OnInit {
 
     posts$: Observable<Post []>
+    showMore = false;
 
     constructor(private postsService: PostsService) {
     }

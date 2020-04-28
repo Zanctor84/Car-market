@@ -9,11 +9,21 @@
 >
 
     <app-car
-            *ngFor="let post of posts"
+            *ngFor="let post of posts | slice:0:3"
             [post]="post"
     ></app-car>
+    <ng-container *ngIf="showMore">
+        <ng-container *ngFor="let post of posts; let ndx = index">
+            <span *ngIf="ndx >= 3"><app-car
+                    [post]="post"
+            ></app-car>
+            </span>
+        </ng-container>
+    </ng-container>
+
 
 </div>
+<button class="btn btn-primary text-center btn-show" (click)="showMore = true">Показать все</button>
 
 <app-car-service-info>
 
