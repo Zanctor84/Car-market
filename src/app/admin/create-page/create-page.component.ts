@@ -31,6 +31,7 @@ export class CreatePageComponent implements OnInit {
             title: new FormControl(null, Validators.required),
             text: new FormControl(null, Validators.required),
             price: new FormControl(null, Validators.required),
+            sale: new FormControl(null),
             year: new FormControl(null, Validators.required),
             motor: new FormControl(null, Validators.required),
             run: new FormControl(null, Validators.required),
@@ -65,6 +66,7 @@ export class CreatePageComponent implements OnInit {
         const post: Post = {
             title: this.form.value.title,
             text: this.form.value.text,
+            sale: this.form.value.sale,
             price: this.form.value.price,
             year: this.form.value.year,
             motor: this.form.value.motor,

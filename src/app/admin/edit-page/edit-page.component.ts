@@ -3,7 +3,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {PostsService} from '../../shared/posts.service';
 import {switchMap} from 'rxjs/operators';
 import {Post} from '../../shared/interfaces';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {AlertService} from '../shared/services/alert.service';
 
@@ -39,6 +39,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
                 image: new FormControl(post.image, Validators.required),
                 title: new FormControl(post.title, Validators.required),
                 price: new FormControl(post.price, Validators.required),
+                sale: new FormControl(post.sale),
                 year: new FormControl(post.year, Validators.required),
                 motor: new FormControl(post.motor, Validators.required),
                 run: new FormControl(post.run, Validators.required),
@@ -46,6 +47,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
             })
         })
     }
+
 
     ngOnDestroy() {
         if (this.uSub) {
@@ -64,6 +66,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
         this.uSub = this.postsService.update({
             ...this.post,
             image: this.form.value.image,
+            sale: this.form.value.sale,
             text: this.form.value.text,
             price: this.form.value.price,
             year: this.form.value.year,

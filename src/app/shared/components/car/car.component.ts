@@ -9,17 +9,17 @@ import {Post} from '../../interfaces';
 export class CarComponent implements OnInit {
 
 
-    @Input() post: Post
+    @Input() post: Post;
 
-    variable = false;
+    sale = true;
 
     constructor() {
 
     }
 
-    showContent() {
-        this.variable = true
-    }
+    // showContent() {
+    //     this.variable = true;
+    // }
 
     ngOnInit() {
 
