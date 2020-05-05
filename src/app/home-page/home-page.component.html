@@ -9,22 +9,26 @@
 >
 
     <app-car
-            *ngFor="let post of posts | slice:0:3"
+            *ngFor="let post of posts | slice:0:4"
             [post]="post"
     ></app-car>
+
     <ng-container *ngIf="showMore">
         <ng-container *ngFor="let post of posts; let ndx = index">
-            <span *ngIf="ndx >= 3"><app-car
+            <span *ngIf="ndx >= 4">
+                <app-car
                     [post]="post"
-            ></app-car>
+                ></app-car>
             </span>
         </ng-container>
     </ng-container>
 
 
 </div>
-<button class="btn btn-primary text-center btn-show" (click)="showMore = true">Показать все</button>
-
+<!--<div [hidden] = "showMore">-->
+<button class="btn btn-primary text-center btn-show" [disabled]="showMore" (click)="showMore = true">Показать все
+</button>
+<!--</div>-->
 <app-car-service-info>
 
 </app-car-service-info>
