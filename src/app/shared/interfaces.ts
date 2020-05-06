@@ -12,7 +12,7 @@ export interface FbAuthResponse {
 export interface Post {
     id?: string
     title: string
-    sale: string
+    sale: boolean
     text: string
     author: string
     image: string

@@ -17,7 +17,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
     form: FormGroup
     post: Post
     submitted = false
-
+    sale = false
     uSub: Subscription
 
 
@@ -48,6 +48,9 @@ export class EditPageComponent implements OnInit, OnDestroy {
         })
     }
 
+    showContent() {
+        this.sale = true;
+    }
 
     ngOnDestroy() {
         if (this.uSub) {
