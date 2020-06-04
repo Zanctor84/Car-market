@@ -1,0 +1,136 @@
+<!-- Contact 2 start -->
+<div class="contact-2 content-area-5">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>Contact <span>Us</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+        </div>
+        <form action="#" method="GET" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <div class="form-group name">
+                                <input type="text" name="name" class="form-control" placeholder="Имя"
+                                       formControlName="name">
+
+                                <!--<pre>{{form.get('name').errors | json}}</pre>-->
+
+                                <div
+                                        *ngIf="form.get('name').invalid && form.get('name').touched"
+                                        class="validation"
+                                >
+                                    <small *ngIf="form.get('name').errors.required">
+                                        Поле "Имя" не может быть пустым
+                                    </small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group email">
+                                <input type="email" name="email" class="form-control" placeholder="Email"
+                                       formControlName="email">
+                                <div
+                                        *ngIf="form.get('email').invalid && form.get('email').touched"
+                                        class="validation"
+                                >
+                                    <small *ngIf="form.get('email').errors.required">
+                                        Поле email не может быть пустым
+                                    </small>
+
+                                    <small *ngIf="form.get('email').errors.email">
+                                        Введите корректный email
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group subject">
+                                <input type="text" name="subject" class="form-control" placeholder="Организация"
+                                       formControlName="subject">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group number">
+
+                                <!--<pre>{{form.get('phone').errors | json}}</pre>-->
+
+                                <input type="text" name="phone" class="form-control" placeholder="Телефон"
+                                       formControlName="phone">
+
+                                <div
+                                        *ngIf="form.get('phone').invalid && form.get('phone').touched"
+                                        class="validation"
+                                >
+                                    <small *ngIf="form.get('phone').errors.required">
+                                        Введите свой телефон
+                                    </small>
+
+                                    <small *ngIf="form.get('phone').errors.pattern">
+                                        Должны быть цифры, не мение 9 символов
+                                    </small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group message">
+                                <textarea class="form-control" name="message" placeholder="Введите сообщение:"
+                                          formControlName="message"></textarea>
+                                <div
+                                        *ngIf="form.get('message').invalid && form.get('message').touched"
+                                        class="validation"
+                                >
+                                    <small *ngIf="form.get('message').errors.required">
+                                        Поле не может быть пустым
+                                    </small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="send-btn text-center">
+                                <button type="submit" class="btn button-theme" [disabled]="form.invalid">Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-info-2">
+                        <div class="ci-box">
+                            <div class="icon">
+                                <img src="../../assets/img/contact-us/smartphone.png" alt="phone">
+                            </div>
+                            <div class="detail">
+                                <h5>Phone:</h5>
+                                <p><a href="#">+3 80 88 253 85 75</a></p>
+                            </div>
+                        </div>
+                        <div class="ci-box">
+                            <div class="icon">
+                                <img src="../../assets/img/contact-us/mail.png" alt="email">
+                            </div>
+                            <div class="detail">
+                                <h5>Email:</h5>
+                                <p><a href="#">info@email.com</a></p>
+                            </div>
+                        </div>
+                        <div class="ci-box">
+                            <div class="icon">
+                                <img src="../../assets/img/contact-us/web.png" alt="web">
+                            </div>
+                            <div class="detail">
+                                <h5>Web:</h5>
+                                <p><a href="#">same-site.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Contact 2 end -->

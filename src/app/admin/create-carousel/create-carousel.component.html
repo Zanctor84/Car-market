@@ -1,0 +1,90 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Создание карусели</h1>
+
+    <div class="form-control">
+
+        <quill-editor formControlName="image" placeholder="Добавить заглавную фотографию">
+            <div quill-editor-toolbar>
+
+                <button class="ql-image">Выбрать:</button>
+
+            </div>
+        </quill-editor>
+
+    </div>
+
+    <div
+            class="form-control"
+            [ngClass]="{invalid: form.get('mtitle').touched && form.get('mtitle').invalid}"
+    >
+
+
+        <label for="mtitle">Название заглавное:</label>
+
+
+        <input id="mtitle" type="text" formControlName="mtitle">
+
+        <div
+                *ngIf="form.get('mtitle').touched && form.get('mtitle').invalid"
+                class="validation"
+        >
+            <small *ngIf="form.get('mtitle').errors.required">
+                Введите название
+            </small>
+        </div>
+    </div>
+
+    <div
+            class="form-control"
+            [ngClass]="{invalid: form.get('stitle').touched && form.get('stitle').invalid}"
+    >
+
+
+        <label for="stitle">Краткая информация:</label>
+
+
+        <input id="stitle" type="text" formControlName="stitle">
+
+        <div
+                *ngIf="form.get('stitle').touched && form.get('stitle').invalid"
+                class="validation"
+        >
+            <small *ngIf="form.get('stitle').errors.required">
+                Введите название
+            </small>
+        </div>
+    </div>
+
+    <div class="form-control">
+
+        <label for="cprice">Цена авто:</label>
+
+        <input id="cprice" type="text" formControlName="cprice">
+        <small>Цена будет в формате $ 258,00. Вам нужно ввести только цифры</small>
+
+    </div>
+
+
+    <button
+            type="submit"
+            class="btn btn-block btn-dark"
+            [disabled]="form.invalid"
+    >Создать
+    </button>
+</form>
+
+<hr>
+
+<div class="carousel-edit-view">
+
+    <div *ngFor="let carousel of carousels; let idx = index" class="caorusel-component">
+
+
+        <span><quill-view-html [content]="carousel.image"></quill-view-html></span>
+        <p>{{carousel.mtitle}}</p>
+        <p>{{carousel.stitle}}</p>
+        <p>{{carousel.cprice}}</p>
+
+
+    </div>
+</div>
