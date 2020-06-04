@@ -1,7 +1,25 @@
-<app-carousel>
+<section class="main-car-css">
 
-</app-carousel>
 
+    <div *ngIf="carousel$ | async as carousel; else loading">
+
+
+        <ngb-carousel class="carousel slide carousel-fade">
+
+            <ng-template ngbSlide>
+
+                <app-carousel
+                        *ngFor="let carousels of carousel"
+                        [carousel]="carousels"
+                >
+
+                </app-carousel>
+            </ng-template>
+
+        </ngb-carousel>
+
+
+    </div>
 
 <div
         *ngIf="posts$ | async as posts; else loading"
@@ -36,3 +54,5 @@
 <ng-template #loading>
     <p class="text-center">Загрузка...</p>
 </ng-template>
+
+</section>

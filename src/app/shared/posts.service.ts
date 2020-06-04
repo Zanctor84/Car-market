@@ -17,8 +17,8 @@ export class PostsService {
                     ...post,
                     id: response.name,
                     date: new Date(post.date)
-                }
-            }))
+                };
+            }));
     }
 
     getAll(): Observable<Post[]> {
@@ -30,8 +30,8 @@ export class PostsService {
                         ...response[key],
                         id: key,
                         date: new Date(response[key].date)
-                    }))
-            }))
+                    }));
+            }));
     }
 
     getById(id: string): Observable<Post> {
@@ -40,15 +40,15 @@ export class PostsService {
                 return {
                     ...post, id,
                     date: new Date(post.date)
-                }
-            }))
+                };
+            }));
     }
 
     remove(id: string): Observable<void> {
-        return this.http.delete<void>(`${environment.fbDbUrl}/posts/${id}.json`)
+        return this.http.delete<void>(`${environment.fbDbUrl}/posts/${id}.json`);
     }
 
     update(post: Post): Observable<Post> {
-        return this.http.patch<Post>(`${environment.fbDbUrl}/posts/${post.id}.json`, post)
+        return this.http.patch<Post>(`${environment.fbDbUrl}/posts/${post.id}.json`, post);
     }
 }

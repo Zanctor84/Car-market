@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AdminLayoutComponent} from './shared/components/admin-layout/admin-layout.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
+import {CreateCarouselComponent} from './create-carousel/create-carousel.component';
 import {CreatePageComponent} from './create-page/create-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
 import {SharedModule} from '../shared/shared.module';
@@ -20,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarsService} from './shared/services/cars.service';
 
 
+
 @NgModule({
     declarations: [
         AdminLayoutComponent,
@@ -28,7 +30,8 @@ import {CarsService} from './shared/services/cars.service';
         CreatePageComponent,
         EditPageComponent,
         SearchPipe,
-        AlertComponent
+        AlertComponent,
+        CreateCarouselComponent
     ],
 
     imports: [
@@ -44,6 +47,7 @@ import {CarsService} from './shared/services/cars.service';
                     {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
                     {path: 'login', component: LoginPageComponent},
                     {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
+                    {path: 'carousel', component: CreateCarouselComponent, canActivate: [AuthGuard]},
                     {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
                     {path: 'car/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]}
                 ]

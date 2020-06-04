@@ -17,7 +17,6 @@ export class EditPageComponent implements OnInit, OnDestroy {
     form: FormGroup
     post: Post
     submitted = false
-    sale = false
     uSub: Subscription
 
 
@@ -31,10 +30,10 @@ export class EditPageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.route.params.pipe(
             switchMap((params: Params) => {
-                return this.postsService.getById(params['id'])
+                return this.postsService.getById(params['id']);
             })
         ).subscribe((post: Post) => {
-            this.post = post
+            this.post = post;
             this.form = new FormGroup({
                 image: new FormControl(post.image, Validators.required),
                 title: new FormControl(post.title, Validators.required),
@@ -44,27 +43,24 @@ export class EditPageComponent implements OnInit, OnDestroy {
                 motor: new FormControl(post.motor, Validators.required),
                 run: new FormControl(post.run, Validators.required),
                 text: new FormControl(post.text, Validators.required)
-            })
-        })
+            });
+        });
     }
 
-    showContent() {
-        this.sale = true;
-    }
 
     ngOnDestroy() {
         if (this.uSub) {
-            this.uSub.unsubscribe()
+            this.uSub.unsubscribe();
         }
     }
 
 
     submit() {
         if (this.form.invalid) {
-            return
+            return;
         }
 
-        this.submitted = true
+        this.submitted = true;
 
         this.uSub = this.postsService.update({
             ...this.post,
@@ -77,8 +73,8 @@ export class EditPageComponent implements OnInit, OnDestroy {
             run: this.form.value.run,
             title: this.form.value.title
         }).subscribe(() => {
-            this.submitted = false
-        })
-        this.alert.warning('Изменено')
+            this.submitted = false;
+        });
+        this.alert.warning('Изменено');
     }
 }

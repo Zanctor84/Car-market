@@ -4,6 +4,7 @@ import {Post} from '../../shared/interfaces';
 import {PostsService} from '../../shared/posts.service';
 import {AlertService} from '../shared/services/alert.service';
 import {NgbTypeaheadConfig} from '@ng-bootstrap/ng-bootstrap';
+import {CarouselService} from '../../shared/carousel.service';
 
 @Component({
     selector: 'app-create-page',
@@ -37,7 +38,7 @@ export class CreatePageComponent implements OnInit {
             run: new FormControl(null, Validators.required),
             author: new FormControl(null, Validators.required),
             image: new FormControl(null, Validators.required)
-        })
+        });
     }
 
     preview(files) {
@@ -50,7 +51,7 @@ export class CreatePageComponent implements OnInit {
         reader.readAsDataURL(files[0]);
         reader.onload = (_event) => {
             this.imgURL = reader.result;
-        }
+        };
     }
 
 
@@ -60,7 +61,7 @@ export class CreatePageComponent implements OnInit {
 
     submit() {
         if (this.form.invalid) {
-            return
+            return;
         }
 
         const post: Post = {
@@ -74,13 +75,13 @@ export class CreatePageComponent implements OnInit {
             author: this.form.value.author,
             image: this.form.value.image,
             date: new Date()
-        }
+        };
 
 
         this.postsService.create(post).subscribe(() => {
-            this.form.reset()
-            this.alert.success('Успешно создан')
-        })
+            this.form.reset();
+            this.alert.success('Успешно создан');
+        });
         // console.log(post)
     }
 
